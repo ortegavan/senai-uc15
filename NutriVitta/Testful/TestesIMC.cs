@@ -18,10 +18,7 @@ public class TestesIMC
     [Fact]
     public void TestarClassificacao()
     {
-        var peso = 74M;
-        var altura = 1.70M;
-
-        var imc = Calculo.Calcular(peso, altura);
+        var imc = 25.61M;
         var classificacao = Calculo.Classificar(imc);
 
         Assert.Equal(Classificacao.Sobrepeso, classificacao);
