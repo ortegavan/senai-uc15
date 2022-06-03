@@ -4,23 +4,27 @@ using Xunit;
 
 public class TestesIMC
 {
-    [Fact]
-    public void TestarCalculo()
+    [Theory]
+    [InlineData(52, 1.58, 20.83)]
+    [InlineData(48, 1.64, 17.85)]
+    [InlineData(74, 1.71, 25.31)]
+    [InlineData(100, 1.71, 34.20)]
+    public void TestarCalculo(double peso, double altura, double imc)
     {
-        var peso = 74M;
-        var altura = 1.70M;
+        var resultado = Calculo.Calcular(peso, altura);
 
-        var imc = Calculo.Calcular(peso, altura);
-
-        Assert.Equal(25.61M, Math.Round(imc, 2));
+        Assert.Equal(imc, Math.Round(resultado, 2));
     }
 
-    [Fact]
-    public void TestarClassificacao()
-    {
-        var imc = 25.61M;
-        var classificacao = Calculo.Classificar(imc);
+    [Theory]
+    [InlineData(20.83, Classificacao.PesoNormal)]
+    [InlineData(17.85, Classificacao.AbaixoDoPeso)]
+    [InlineData(25.31, Classificacao.Sobrepeso)]
+    [InlineData(34.20, Classificacao.ObesidadeGrauI)]
+    public void TestarClassificacao(double imc, Classificacao classificacao)
+    {        
+        var resultado = Calculo.Classificar(imc);
 
-        Assert.Equal(Classificacao.Sobrepeso, classificacao);
+        Assert.Equal(classificacao, resultado);
     }
 }

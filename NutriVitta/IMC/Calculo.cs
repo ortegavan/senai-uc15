@@ -4,32 +4,32 @@ namespace IMC
 {
 	public static class Calculo
 	{
-		public static decimal Calcular(decimal peso, decimal altura)
+		public static double Calcular(double peso, double altura)
         {
 			return peso / (altura * altura);
         }
 
-		public static Classificacao Classificar(decimal imc)
+		public static Classificacao Classificar(double imc)
         {
 			Classificacao classificacao;
 
-			if (imc < 18.5M)
+			if (imc < 18.5)
             {
 				classificacao = Classificacao.AbaixoDoPeso;
             }
-			else if (imc >= 18.5M && imc < 24.9M)
+			else if (imc >= 18.5 && imc < 24.9)
             {
 				classificacao = Classificacao.PesoNormal;
             }
-			else if (imc >= 25M && imc < 29.9M)
+			else if (imc >= 25 && imc < 29.9)
             {
 				classificacao = Classificacao.Sobrepeso;
             }
-			else if (imc >= 30M && imc < 34.9M)
+			else if (imc >= 30 && imc < 34.9)
 			{
 				classificacao = Classificacao.ObesidadeGrauI;
 			}
-			else if (imc >= 35M && imc < 39.9M)
+			else if (imc >= 35 && imc < 39.9)
 			{
 				classificacao = Classificacao.ObesidadeGrauII;
 			}
