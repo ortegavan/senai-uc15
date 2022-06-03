@@ -4,11 +4,22 @@ namespace IMC
 {
 	public static class Calculo
 	{
+		/// <summary>
+        /// Calcula o índice de massa corpórea de uma pessoa (peso dividido pela altura ao quadrado)
+        /// </summary>
+        /// <param name="peso">Peso da pessoa, em kg</param>
+        /// <param name="altura">Altura da pessoa, em m</param>
+        /// <returns>IMC calculado</returns>
 		public static double Calcular(double peso, double altura)
         {
 			return peso / (altura * altura);
         }
 
+		/// <summary>
+        /// Classifica o IMC de uma pessoa de acordo com a tabela da Abeso
+        /// </summary>
+        /// <param name="imc">Índice de massa corpórea</param>
+        /// <returns>Classificação</returns>
 		public static Classificacao Classificar(double imc)
         {
 			Classificacao classificacao;
